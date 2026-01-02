@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <form action="Display.html" method="get" id="registrationForm">
+      <h1>Registration</h1>
+
+      <label for="username" accesskey="u"><u>U</u>sername</label>
+      <input type="text" id="username" name="username" />
+
+      <label for="email" accesskey="e"><u>E</u>mail</label>
+      <input type="email" id="email" name="email" />
+
+      <label for="address" accesskey="a"><u>A</u>ddress</label>
+      <textarea id="address" name="address" rows="3"></textarea>
+
+      <label for="mobile" accesskey="m"><u>M</u>obile</label>
+      <input
+        type="text"
+        id="mobile"
+        name="mobile"
+        pattern="+201[0125][0-9]{8}"
+        placeholder="e.g. +201234567890"
+      />
+
+      <fieldset>
+        <legend accesskey="g"><u>G</u>Gender</legend>
+        <input type="radio" id="gender_male" name="gender" value="male" />
+        <label for="gender_male">Male</label>
+        <input type="radio" id="gender_female" name="gender" value="female" />
+        <label for="gender_female">Female</label>
+      </fieldset>
+
+      <button type="submit" id="submitBtn" accesskey="s"><u>S</u>ubmit</button>
+    </form>
+  </body>
+</html>
