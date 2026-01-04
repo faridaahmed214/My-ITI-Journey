@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Update</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 20px;
+        background-color: #f4f4f4;
+      }
+      input[type="button"] {
+        padding: 10px 20px;
+        margin: 5px;
+        font-size: 16px;
+        cursor: pointer;
+      }
+      input[type="text"] {
+        padding: 10px;
+        font-size: 16px;
+      }
+      #div1id {
+        margin-top: 20px;
+        font-weight: bold;
+        color: blue;
+      }
+    </style>
+
+    <script>
+      var inputField;
+
+      window.onload = function () {
+        inputField = document.getElementById("txt1");
+        document.getElementById("diplayBtn").onclick = displayOptions;
+      };
+
+      function displayVal(elem) {
+        inputField.value += elem.value.trim();
+      }
+
+      function clearFun() {
+        inputField.value = "";
+      }
+
+      function eraserFun() {
+        inputField.value = inputField.value.substring(
+          0,
+          inputField.value.length - 1
+        );
+      }
+
+      function displayOptions() {
+        var sel = document.getElementById("menu");
+        var result = "Selected: ";
+        for (var i = 0; i < sel.options.length; i++) {
+          if (sel.options[i].selected) {
+            result += sel.options[i].text + ", ";
+          }
+        }
+        console.log(result);
+        alert(result);
+      }
+
+      function displayContent(txtField) {
+        var txt = txtField.value;
+        document.getElementById("div1id").innerHTML = txt;
+      }
+    </script>
+  </head>
+  <body>
+    <a href="javascript:void(0)" id="aElem" onclick="alert('anchor tag');"
+      >google</a
+    >
+    <br /><br />
+
+    <input type="button" value=" 1 " onclick="displayVal(this)" />
+    <input type="button" value=" 2 " onclick="displayVal(this)" />
+    <input type="button" value=" 3 " onclick="displayVal(this)" />
+    <br />
+    <input type="button" value=" 4 " onclick="displayVal(this)" />
+    <input type="button" value=" 5 " onclick="displayVal(this)" />
+    <input type="button" value=" 6 " onclick="displayVal(this)" />
+    <br />
+    <input type="button" value=" 7 " onclick="displayVal(this)" />
+
+    <input type="button" value=" C " onclick="clearFun()" />
+    <input type="button" value=" << " onclick="eraserFun()" />
+
+    <br /><br />
+    <input type="text" id="txt1" placeholder="Numbers will appear here" />
+
+    <br /><br />
+    <hr />
+
+    <select id="menu" multiple size="5">
+      <option>option#1</option>
+      <option>option#2</option>
+      <option>option#3</option>
+      <option value="o4">option#4</option>
+      <option>option#5</option>
+      <option>option#6</option>
+      <option>option#7</option>
+    </select>
+
+    <input type="button" value="displayOptions" id="diplayBtn" />
+
+    <br /><br />
+    <input
+      type="text"
+      placeholder="Type to show below..."
+      onfocus="select()"
+      onblur="console.log('blur event')"
+      onkeyup="displayContent(this)"
+    />
+    <div id="div1id"></div>
+  </body>
+</html>
