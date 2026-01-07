@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Greeting Form</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Roboto", sans-serif;
+        background-color: #121212;
+        color: #e0e0e0;
+      }
+
+      .container {
+        width: 400px;
+        margin: 80px auto;
+        background-color: #1e1e1e;
+        padding: 40px;
+        border: 1px solid #333;
+        border-radius: 8px;
+        box-shadow: 0 0 20px rgba(0, 230, 118, 0.05);
+        text-align: center;
+        border-top: 4px solid #00e676;
+      }
+
+      h2 {
+        color: #00e676;
+        font-weight: 300;
+        margin-top: 0;
+        margin-bottom: 30px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-size: 20px;
+      }
+
+      input[type="text"],
+      select {
+        display: block;
+        width: 100%;
+        padding: 12px;
+        margin-bottom: 20px;
+        background-color: #2c2c2c;
+        border: 1px solid #444;
+        border-radius: 4px;
+        color: #fff;
+        font-size: 14px;
+        outline: none;
+        transition: border-color 0.3s;
+      }
+
+      input[type="text"]:focus,
+      select:focus {
+        border-color: #00e676;
+        background-color: #333;
+      }
+
+      .gender-wrapper {
+        margin: 25px 0;
+        text-align: center;
+      }
+
+      .gender-option {
+        display: inline-block;
+        width: 40%;
+        margin: 0 5px;
+        padding: 10px;
+        border: 1px solid #333;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: 0.3s;
+      }
+
+      .gender-option img {
+        display: block;
+        margin: 0 auto 10px auto;
+        width: 110px;
+        border-radius: 300px;
+        object-fit: contain;
+      }
+
+      .gender-option input {
+        accent-color: #00e676;
+      }
+
+      #greetBtn {
+        display: block;
+        width: 100%;
+        padding: 14px;
+        background-color: #00e676;
+        color: #121212;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        font-weight: 500;
+        cursor: pointer;
+        margin-top: 10px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        transition: 0.3s;
+      }
+
+      ::placeholder {
+        color: #666;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <h2>Profile</h2>
+
+      <input type="text" id="nameInput" placeholder="Full Name" />
+      <input type="text" id="ageInput" placeholder="Age" />
+
+      <div class="gender-wrapper">
+        <label class="gender-option" for="maleRadio">
+          <img src="male.png" alt="male" />
+          <input type="radio" name="gender" id="maleRadio" value="male" />
+        </label>
+
+        <label class="gender-option" for="femaleRadio">
+          <img src="female.png" alt="female" />
+          <input type="radio" name="gender" id="femaleRadio" value="female" />
+        </label>
+      </div>
+
+      <select name="favColor" id="favColorSelect">
+        <option value="" disabled selected>Select Color</option>
+        <option value="red">Red</option>
+        <option value="green">Green</option>
+        <option value="blue">Blue</option>
+        <option value="yellow">Yellow</option>
+        <option value="orange">Orange</option>
+        <option value="purple">Purple</option>
+      </select>
+
+      <button id="greetBtn">Submit</button>
+    </div>
+    <script src="cookieLib.js"></script>
+
+    <script src="greetingForm.js"></script>
+  </body>
+</html>
