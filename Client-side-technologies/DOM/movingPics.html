@@ -87,7 +87,7 @@
         src="snow.svg"
         id="img2"
         class="icon"
-        style="top: 0px; left: 175px"
+        style="top: 350px; left: 175px"
         alt="2"
       />
       <img
@@ -102,6 +102,7 @@
     <div class="controls">
       <button onclick="startAnimation()">Go</button>
       <button onclick="stopAnimation()">Stop</button>
+      <button onclick="resetAnimation()">Reset</button>
     </div>
 
     <div id="info-panel">Ready to start...</div>
@@ -117,14 +118,14 @@
       let x1 = 0,
         y1 = 0,
         stepX1 = 5,
-        stepY1 = 5;
+        stepY1 = 2;
       let x2 = 175,
-        y2 = 0,
-        stepX2 = 0,
-        stepY2 = 8;
+        y2 = 350,
+        stepX2 = -3,
+        stepY2 = -8;
       let x3 = 350,
         y3 = 0,
-        stepX3 = -5,
+        stepX3 = -2,
         stepY3 = 5;
 
       function startAnimation() {
@@ -140,6 +141,22 @@
         }
         infoPanel.innerHTML = "Animation Stopped.";
       }
+      function resetAnimation() {
+        if (timerId != null) {
+          clearInterval(timerId);
+          timerId = null;
+        }
+        ((x1 = 0), (y1 = 0), (stepX1 = 5), (stepY1 = 2));
+        ((x2 = 175), (y2 = 350), (stepX2 = -3), (stepY2 = -8));
+        ((x3 = 350), (y3 = 0), (stepX3 = -2), (stepY3 = 5));
+
+        img1.style.left = x1 + "px";
+        img1.style.top = y1 + "px";
+        img2.style.left = x2 + "px";
+        img2.style.top = y2 + "px";
+        img3.style.left = x3 + "px";
+        img3.style.top = y3 + "px";
+      }
 
       function moveImages() {
         let maxW = 350;
@@ -150,7 +167,9 @@
         if (x1 >= maxW || x1 <= 0) stepX1 *= -1;
         if (y1 >= maxH || y1 <= 0) stepY1 *= -1;
 
+        x2 += stepX2;
         y2 += stepY2;
+        if (x2 >= maxW || x2 <= 0) stepX2 *= -1;
         if (y2 >= maxH || y2 <= 0) stepY2 *= -1;
 
         x3 += stepX3;
@@ -169,10 +188,8 @@
 
         let text =
           "img src='leaf.svg' left: " + x1 + "px; top: " + y1 + "px <br>";
-        text +=
-          "img src='snow.svg' left: " + x2 + "px; top: " + y2 + "px<br>";
-        text +=
-          "img src='flowers.svg' left: " + x3 + "px; top: " + y3 + "px";
+        text += "img src='snow.svg' left: " + x2 + "px; top: " + y2 + "px<br>";
+        text += "img src='flowers.svg' left: " + x3 + "px; top: " + y3 + "px";
 
         infoPanel.innerHTML = text;
       }
