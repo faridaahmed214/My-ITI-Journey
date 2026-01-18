@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>--- Text Style ---</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #fff0f5;
+            color: #555;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h2 {
+            color: #d87093;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            border-bottom: 3px dashed #ffb6c1;
+            padding-bottom: 10px;
+        }
+
+        #PAR {
+            width: 80%;
+            max-width: 800px;
+            min-height: 100px;
+            padding: 20px;
+            margin-bottom: 30px;
+            background-color: white;
+            border: 3px solid #ffb6c1;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(219, 112, 147, 0.2);
+            font-family: 'Times New Roman';
+            font-size: 16px;
+            text-align: left;
+            transition: all 0.3s ease;
+        }
+
+        table {
+            border-collapse: separate;
+            border-spacing: 0;
+            background-color: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            width: 95%;
+            border: 1px solid #ffc0cb;
+        }
+
+        th {
+            background-color: #ff69b4;
+            color: white;
+            padding: 15px;
+            text-align: center;
+            font-weight: 600;
+            border-bottom: 3px solid #db7093;
+        }
+
+        td {
+            padding: 10px;
+            text-align: left;
+            border-right: 1px dashed #ffe4e1;
+            vertical-align: top;
+            font-size: 13px;
+        }
+
+        td:last-child {
+            border-right: none;
+        }
+
+        label {
+            display: block;
+            margin: 5px 0;
+            cursor: pointer;
+            color: #666;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+
+        label:hover {
+            color: #d87093;
+        }
+
+        input[type="radio"] {
+            accent-color: #ff1493;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <p id="PAR">
+        Here is a paragraph of text that has various alignment characteristics that can be changed dynamically. 
+        Click the radio buttons below to view combinations of text style settings.
+    </p>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Font Family</th>
+                <th>Text Align</th>
+                <th>Line Height</th>
+                <th>Letter Spacing</th>
+                <th>Text Indent</th>
+                <th>Text Transform</th>
+                <th>Text Decoration</th>
+                <th>Border Style</th>
+                <th>Border Color</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    <label><input type="radio" name="font" onclick="changeStyle('fontFamily', 'arial')" checked> Arial</label>
+                    <label><input type="radio" name="font" onclick="changeStyle('fontFamily', 'courier')"> Courier</label>
+                    <label><input type="radio" name="font" onclick="changeStyle('fontFamily', 'georgia')"> Georgia</label>
+                    <label><input type="radio" name="font" onclick="changeStyle('fontFamily', 'impact')"> Impact</label>
+                    <label><input type="radio" name="font" onclick="changeStyle('fontFamily', 'times new roman')"> Times</label>
+                    <label><input type="radio" name="font" onclick="changeStyle('fontFamily', 'verdana')"> Verdana</label>
+                </td>
+
+                <td>
+                    <label><input type="radio" name="align" onclick="changeStyle('textAlign', 'left')" checked> Left</label>
+                    <label><input type="radio" name="align" onclick="changeStyle('textAlign', 'center')"> Center</label>
+                    <label><input type="radio" name="align" onclick="changeStyle('textAlign', 'right')"> Right</label>
+                    <label><input type="radio" name="align" onclick="changeStyle('textAlign', 'justify')"> Justify</label>
+                </td>
+
+                <td>
+                    <label><input type="radio" name="height" onclick="changeStyle('lineHeight', 'normal')" checked> Normal</label>
+                    <label><input type="radio" name="height" onclick="changeStyle('lineHeight', '10px')"> 10px</label>
+                    <label><input type="radio" name="height" onclick="changeStyle('lineHeight', '15px')"> 15px</label>
+                    <label><input type="radio" name="height" onclick="changeStyle('lineHeight', '1.5')"> 1.5</label>
+                </td>
+
+                <td>
+                    <label><input type="radio" name="spacing" onclick="changeStyle('letterSpacing', 'normal')" checked> Normal</label>
+                    <label><input type="radio" name="spacing" onclick="changeStyle('letterSpacing', '-1px')"> -1px</label>
+                    <label><input type="radio" name="spacing" onclick="changeStyle('letterSpacing', '2px')"> 2px</label>
+                    <label><input type="radio" name="spacing" onclick="changeStyle('letterSpacing', '3px')"> 3px</label>
+                </td>
+
+                <td>
+                    <label><input type="radio" name="indent" onclick="changeStyle('textIndent', '0px')" checked> 0px</label>
+                    <label><input type="radio" name="indent" onclick="changeStyle('textIndent', '5px')"> 5px</label>
+                    <label><input type="radio" name="indent" onclick="changeStyle('textIndent', '15px')"> 15px</label>
+                    <label><input type="radio" name="indent" onclick="changeStyle('textIndent', '25px')"> 25px</label>
+                </td>
+
+                <td>
+                    <label><input type="radio" name="transform" onclick="changeStyle('textTransform', 'none')" checked> None</label>
+                    <label><input type="radio" name="transform" onclick="changeStyle('textTransform', 'capitalize')"> Capitalize</label>
+                    <label><input type="radio" name="transform" onclick="changeStyle('textTransform', 'uppercase')"> Uppercase</label>
+                    <label><input type="radio" name="transform" onclick="changeStyle('textTransform', 'lowercase')"> Lowercase</label>
+                </td>
+
+                <td>
+                    <label><input type="radio" name="decoration" onclick="changeStyle('textDecoration', 'none')" checked> None</label>
+                    <label><input type="radio" name="decoration" onclick="changeStyle('textDecoration', 'line-through')"> Line-through</label>
+                    <label><input type="radio" name="decoration" onclick="changeStyle('textDecoration', 'overline')"> Overline</label>
+                    <label><input type="radio" name="decoration" onclick="changeStyle('textDecoration', 'underline')"> Underline</label>
+                </td>
+
+                <td>
+                    <label><input type="radio" name="border" onclick="changeStyle('borderStyle', 'none')"> None</label>
+                    <label><input type="radio" name="border" onclick="changeStyle('borderStyle', 'dotted')"> Dotted</label>
+                    <label><input type="radio" name="border" onclick="changeStyle('borderStyle', 'double')"> Double</label>
+                    <label><input type="radio" name="border" onclick="changeStyle('borderStyle', 'groove')"> Groove</label>
+                    <label><input type="radio" name="border" onclick="changeStyle('borderStyle', 'dashed')"> Dashed</label>
+                    <label><input type="radio" name="border" onclick="changeStyle('borderStyle', 'solid')" checked> Solid</label>
+                    <label><input type="radio" name="border" onclick="changeStyle('borderStyle', 'ridge')"> Ridge</label>
+                </td>
+
+                <td>
+                    <label><input type="radio" name="bcolor" onclick="changeStyle('borderColor', 'black')"> Black</label>
+                    <label><input type="radio" name="bcolor" onclick="changeStyle('borderColor', '#ff69b4')" checked> Pink</label>
+                    <label><input type="radio" name="bcolor" onclick="changeStyle('borderColor', 'red')"> Red</label>
+                    <label><input type="radio" name="bcolor" onclick="changeStyle('borderColor', 'green')"> Green</label>
+                    <label><input type="radio" name="bcolor" onclick="changeStyle('borderColor', 'blue')"> Blue</label>
+                    <label><input type="radio" name="bcolor" onclick="changeStyle('borderColor', 'gold')"> Gold</label>
+                    <label><input type="radio" name="bcolor" onclick="changeStyle('borderColor', 'purple')"> Purple</label>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        const p = document.getElementById("PAR");
+
+        function changeStyle(property, value) {
+            p.style[property] = value;
+        }
+    </script>
+
+</body>
+</html>

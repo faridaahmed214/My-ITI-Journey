@@ -1,0 +1,130 @@
+<!doctype html>
+<html>
+  <head>
+    <title>DOM-Nodes</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #fff0f5;
+        text-align: center;
+        padding: 20px;
+      }
+
+      #header {
+        background-color: white;
+        border: 3px solid #ff69b4;
+        border-radius: 15px;
+        width: 80%;
+        height: 280px;
+        margin: 0 auto;
+        /* شيلنا position: relative من هنا خلاص */
+      }
+
+      img {
+        width: 90px;
+        height: 90px;
+        border: 4px double #ff69b4;
+      }
+
+      #navigation {
+        width: 200px;
+        text-align: left;
+      }
+
+      #nav {
+        list-style-type: disc;
+        padding: 0;
+        margin: 0;
+      }
+
+      #nav li {
+        margin-bottom: 5px;
+        padding-bottom: 2px;
+        margin-left: 720px;
+      }
+
+      #nav li:last-child {
+        border-bottom: none;
+      }
+
+      #nav strong {
+        color: #c71585;
+        font-size: 18px;
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      #nav a {
+        text-decoration: none;
+        color: #555;
+        font-size: 14px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+
+  <body>
+    <img src="dom.jpg" alt="hello..it rains over here:)" />
+
+    <div id="navigation">
+      <ul id="nav">
+        <li><strong>Memo</strong></li>
+        <li><a href="Articles.html">Articles</a></li>
+        <li><a href="Photos.html">Photos</a></li>
+        <li><a href="About.html">About</a></li>
+        <li><a href="Clients.html">Clients</a></li>
+        <li><a href="Contact.html">Contact</a></li>
+      </ul>
+    </div>
+
+    <script>
+      const originalImg = document.querySelector("img");
+
+      originalImg.addEventListener(
+        "click",
+        function () {
+          const header = document.createElement("div");
+          header.id = "header";
+          document.body.prepend(header);
+
+          const nav = document.querySelector("#nav");
+          const navDiv = document.getElementById("navigation");
+          const newImg = document.createElement("img");
+          const items = document.querySelectorAll("#nav li"); 
+          const links = document.querySelectorAll("#nav a");
+
+          newImg.src = originalImg.getAttribute("src");
+          newImg.alt = originalImg.getAttribute("alt");
+
+          for (let i = 0; i < links.length; i++) {
+            links[i].style.color = "#ff1493";
+          }
+
+          for (let i = 0; i < items.length; i++) {
+            items[i].style.marginLeft = "520px";
+          }
+
+          nav.style.listStyleType = "circle";
+
+          originalImg.style.display = "block";
+          originalImg.style.marginLeft = "auto";
+          originalImg.style.marginRight = "10px";
+          originalImg.style.marginTop = "10px";
+
+          navDiv.style.display = "block";
+          navDiv.style.marginTop = "-100px";
+
+  
+          newImg.style.display = "block";
+          newImg.style.marginTop = "-15px";
+          newImg.style.marginLeft = "10px";
+
+          header.appendChild(originalImg);
+          header.appendChild(navDiv);
+          header.appendChild(newImg);
+        },
+        { once: true },
+      );
+    </script>
+  </body>
+</html>

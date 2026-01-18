@@ -1,0 +1,181 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Moving Pics</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #fff0f5;
+        color: #555;
+        padding: 20px;
+        text-align: center;
+      }
+
+      h2 {
+        color: #d87093;
+        border-bottom: 3px dashed #ffb6c1;
+        display: inline-block;
+        padding-bottom: 5px;
+      }
+
+      #container {
+        width: 400px;
+        height: 400px;
+        background-color: white;
+        border: 4px solid #ff69b4;
+        border-radius: 15px;
+        margin: 20px auto;
+        position: relative;
+        box-shadow: 0 5px 15px rgba(219, 112, 147, 0.2);
+      }
+
+      .icon {
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        border-radius: 50%;
+        transition: none;
+      }
+
+      .controls {
+        margin: 20px 0;
+      }
+
+      button {
+        background-color: #ff69b4;
+        color: white;
+        border: none;
+        padding: 10px 25px;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 25px;
+        cursor: pointer;
+        margin: 0 10px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        transition: background 0.3s;
+      }
+
+      button:hover {
+        background-color: #d87093;
+      }
+
+      #info-panel {
+        font-family: "Consolas", "Courier New", monospace;
+        background-color: white;
+        border: 2px dashed #ffb6c1;
+        padding: 15px;
+        width: 400px;
+        margin: 0 auto;
+        text-align: left;
+        border-radius: 10px;
+        font-size: 13px;
+        color: #c71585;
+        min-height: 60px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="container">
+      <img
+        src="leaf.svg"
+        id="img1"
+        class="icon"
+        style="top: 0px; left: 0px"
+        alt="1"
+      />
+      <img
+        src="snow.svg"
+        id="img2"
+        class="icon"
+        style="top: 0px; left: 175px"
+        alt="2"
+      />
+      <img
+        src="flowers.svg"
+        id="img3"
+        class="icon"
+        style="top: 0px; left: 350px"
+        alt="3"
+      />
+    </div>
+
+    <div class="controls">
+      <button onclick="startAnimation()">Go</button>
+      <button onclick="stopAnimation()">Stop</button>
+    </div>
+
+    <div id="info-panel">Ready to start...</div>
+
+    <script>
+      let timerId = null;
+
+      let img1 = document.getElementById("img1");
+      let img2 = document.getElementById("img2");
+      let img3 = document.getElementById("img3");
+      let infoPanel = document.getElementById("info-panel");
+
+      let x1 = 0,
+        y1 = 0,
+        stepX1 = 5,
+        stepY1 = 5;
+      let x2 = 175,
+        y2 = 0,
+        stepX2 = 0,
+        stepY2 = 8;
+      let x3 = 350,
+        y3 = 0,
+        stepX3 = -5,
+        stepY3 = 5;
+
+      function startAnimation() {
+        if (timerId == null) {
+          timerId = setInterval(moveImages, 30);
+        }
+      }
+
+      function stopAnimation() {
+        if (timerId != null) {
+          clearInterval(timerId);
+          timerId = null;
+        }
+        infoPanel.innerHTML = "Animation Stopped.";
+      }
+
+      function moveImages() {
+        let maxW = 350;
+        let maxH = 350;
+
+        x1 += stepX1;
+        y1 += stepY1;
+        if (x1 >= maxW || x1 <= 0) stepX1 *= -1;
+        if (y1 >= maxH || y1 <= 0) stepY1 *= -1;
+
+        y2 += stepY2;
+        if (y2 >= maxH || y2 <= 0) stepY2 *= -1;
+
+        x3 += stepX3;
+        y3 += stepY3;
+        if (x3 >= maxW || x3 <= 0) stepX3 *= -1;
+        if (y3 >= maxH || y3 <= 0) stepY3 *= -1;
+
+        img1.style.left = x1 + "px";
+        img1.style.top = y1 + "px";
+
+        img2.style.left = x2 + "px";
+        img2.style.top = y2 + "px";
+
+        img3.style.left = x3 + "px";
+        img3.style.top = y3 + "px";
+
+        let text =
+          "img src='leaf.svg' left: " + x1 + "px; top: " + y1 + "px <br>";
+        text +=
+          "img src='snow.svg' left: " + x2 + "px; top: " + y2 + "px<br>";
+        text +=
+          "img src='flowers.svg' left: " + x3 + "px; top: " + y3 + "px";
+
+        infoPanel.innerHTML = text;
+      }
+    </script>
+  </body>
+</html>
