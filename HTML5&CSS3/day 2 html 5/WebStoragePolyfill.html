@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Storage Test (Set & Get Only)</title>
+    <script src="cookieLib.js"></script>
+</head>
+<body>
+    <h2>Testing Storage (Set & Get)</h2>
+    <h3 id="status">...</h3>
+
+    <script>
+        if (!window.localStorage) {
+            window.localStorage = {
+                setItem: function(key, value) {
+                    setCookie(String(key), String(value), 365);
+                },
+                getItem: function(key) {
+                    return getCookie(String(key));
+                },
+                removeItem: function(key) {
+                    deleteCookie(String(key));
+                },
+                clear: function() {
+                }
+            };
+        }
+
+        var myStorage = window.localStorage || {}; 
+        
+        myStorage.setItem = function(k, v) { setCookie(String(k), String(v), 365); };
+        myStorage.getItem = function(k) { return getCookie(String(k)); };
+
+
+        console.log("Start Test...");
+
+        try {
+            var key = "MyName";
+            var value = "Farida";
+            myStorage.setItem(key, value);
+
+            var retrieved = myStorage.getItem(key);
+            var display = document.getElementById("status");
+            
+            if (retrieved === value) {
+                display.innerHTML = "Success! Saved: " + value + ", Retrieved: " + retrieved;
+                display.style.color = "green";
+                console.log("Success");
+            } else {
+                display.innerHTML = "Failed. Retrieved: " + retrieved;
+                display.style.color = "red";
+                console.log("Failed");
+            }
+
+        } catch (e) {
+            document.getElementById("status").innerText = "Error: " + e.message;
+        }
+    </script>
+</body>
+</html>

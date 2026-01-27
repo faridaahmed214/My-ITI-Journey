@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <button class="nav-btn" id="btn-about">About Me</button>
+        <button class="nav-btn" id="btn-gallery">Gallery</button>
+        <div
+          class="dropdown-box"
+          style="display: inline-block; position: relative"
+        >
+          <button class="nav-btn" id="btn-services">Services</button>
+
+          <div id="services-menu">
+            <div class="service-item">Makeup Art</div>
+            <div class="service-item">Skincare Routine</div>
+            <div class="service-item">Fashion Advice</div>
+          </div>
+        </div>
+
+        <button class="nav-btn" id="btn-complain">Complain</button>
+      </div>
+
+      <div id="about-section" class="content-section">
+        <h2>Hello Beautiful!</h2>
+        <p>
+          Welcome to my personal space. Here we share love, positivity, and
+          sparkles. Everything is designed to make your day brighter and pinker!
+        </p>
+        <br />
+      </div>
+
+      <div id="gallery-section" class="content-section">
+        <h2>My Collection</h2>
+        <div class="gallery-box">
+          <button class="gallery-btn" id="prev-img">❮</button>
+          <div class="img-holder">
+            <img id="main-image" src="img1.jpg" />
+          </div>
+          <button class="gallery-btn" id="next-img">❯</button>
+        </div>
+        <p style="color: #ff4081">Image <span id="img-count">1</span> of 4</p>
+      </div>
+
+      <div id="complain-section" class="content-section">
+        <div id="form-view">
+          <h2>Get in Touch</h2>
+          <input
+            type="text"
+            class="form-input"
+            id="inp-name"
+            placeholder="Your Name"
+          />
+          <input
+            type="text"
+            class="form-input"
+            id="inp-email"
+            placeholder="Your Email"
+          />
+          <input
+            type="text"
+            class="form-input"
+            id="inp-phone"
+            placeholder="Your Phone"
+          />
+          <textarea
+            class="form-input"
+            id="inp-msg"
+            rows="4"
+            placeholder="Your Message..."
+            style="resize: none"
+          ></textarea>
+          <button class="btn-pink" id="btn-send">Send</button>
+        </div>
+
+        <div id="summary-view" style="display: none">
+          <h2>Message Sent!</h2>
+          <div class="summary-box">
+            <div class="summary-row">
+              Name: <span class="highlight" id="out-name"></span>
+            </div>
+            <div class="summary-row">
+              Email: <span class="highlight" id="out-email"></span>
+            </div>
+            <div class="summary-row">
+              Phone: <span class="highlight" id="out-phone"></span>
+            </div>
+            <div class="summary-row" style="border: none">
+              Message: <span class="highlight" id="out-msg"></span>
+            </div>
+          </div>
+          <button class="btn-pink" id="btn-back" style="background-color: #aaa">
+            Edit
+          </button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

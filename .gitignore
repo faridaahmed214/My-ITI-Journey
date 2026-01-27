@@ -1,0 +1,40 @@
+# Compiled object files
+*.o
+*.obj
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Code::Blocks, build outputs
+bin/
+obj/
+*.layout
+*.depend
+*.cbp
+
+# Visual Studio
+.vs/
+*.vcxproj*
+
+# IDEs
+.vscode/
+.idea/
+
+# macOS/Windows
+.DS_Store
+Thumbs.db
+
+# Temp files
+*~
+# Backup files
+*.swp
+
+# Node/npm
+node_modules/
+
+# Logs
+logs/
+*.log
+Problem Solving/

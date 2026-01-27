@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <canvas id="animCanvas" width="400" height="400" style="border:1px solid #ccc;"></canvas>
+
+    <script>
+        var canvas = document.getElementById('animCanvas');
+        var ctx = canvas.getContext('2d');
+        var x = 0;
+        var y = 0;
+
+        ctx.lineWidth = 5;
+        ctx.strokeStyle = "brown";
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+
+        function drawLine() {
+            if (x <= 400 && y <= 400) {
+                ctx.lineTo(x, y);
+                ctx.stroke();
+                x += 5; 
+                y += 5; 
+                requestAnimationFrame(drawLine);
+            } else {
+                alert("animation end");
+            }
+        }
+        drawLine();
+    </script>
+</body>
+</html>

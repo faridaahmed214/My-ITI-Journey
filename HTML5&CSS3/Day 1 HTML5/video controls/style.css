@@ -1,0 +1,146 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #f3e5f5;
+  background-image: radial-gradient(circle, #f8bbd0 0%, #f3e5f5 70%);
+  font-family: 'Quicksand', sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  width: 100%;
+  overflow: hidden; 
+  display: table;
+}
+
+.wrapper {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+}
+
+.player-container {
+  display: inline-block;
+  background-color: #ffffff;
+  padding: 15px; 
+  border-radius: 30px;
+  border: 6px solid #fce4ec;
+  box-shadow: 0 10px 25px rgba(233, 30, 99, 0.1);
+  width: 90%;
+  max-width: 700px;
+}
+
+.screen-frame {
+  background-color: #000;
+  border-radius: 20px;
+  padding: 0;
+  overflow: hidden;
+  border: 3px solid #f8bbd0;
+  margin-bottom: 10px;
+  max-height: 50vh; 
+}
+
+.video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.controls {
+  text-align: center;
+}
+
+.timeline-group {
+  margin-bottom: 10px;
+  padding: 0 5px;
+}
+
+#slider {
+  width: 100%;
+  height: 6px;
+  cursor: pointer;
+  accent-color: #ba68c8;
+  border-radius: 5px;
+}
+
+.buttons-main {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px dashed #f8bbd0;
+}
+
+button {
+  display: inline-block;
+  vertical-align: middle;
+  background-color: #e1bee7;
+  color: #6a1b9a;
+  border: none;
+  font-family: 'Pacifico', cursive;
+  font-size: 16px; 
+  padding: 8px 15px;
+  margin: 3px;
+  border-radius: 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #d1c4e9;
+}
+
+#play, #pause {
+  background-color: #f48fb1;
+  color: #fff;
+  padding: 8px 25px;
+}
+
+.settings-group {
+  font-size: 13px;
+  color: #880e4f;
+}
+
+.mute {
+  font-size: 12px;
+  padding: 5px 10px;
+  background-color: #b2dfdb;
+  color: #00695c;
+}
+
+input[type="range"] {
+  display: inline-block;
+  vertical-align: middle;
+  cursor: pointer;
+  height: 4px; 
+}
+
+#volume {
+  width: 60px;
+  accent-color: #80cbc4;
+  margin: 0 5px;
+}
+
+#speed {
+  width: 50px;
+  accent-color: #ffcc80;
+  margin: 0 5px;
+}
+
+.divider {
+  display: inline-block;
+  margin: 0 5px;
+  color: #f8bbd0;
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+.time-display {
+  display: block;
+  margin-top: 5px;
+  font-weight: bold;
+  color: #ba68c8;
+  font-size: 14px;
+}

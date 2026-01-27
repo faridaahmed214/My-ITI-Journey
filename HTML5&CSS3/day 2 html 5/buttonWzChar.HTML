@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <canvas id="orbCanvas" width="400" height="400"></canvas>
+
+    <script>
+        var c = document.getElementById("orbCanvas");
+        var ctx = c.getContext("2d");
+        var centerX = 150;
+        var centerY = 150;
+        
+        var outerRadius = 115; 
+        
+        var borderGrd = ctx.createLinearGradient(centerX - outerRadius, centerY - outerRadius, centerX + outerRadius, centerY + outerRadius);
+        borderGrd.addColorStop(0, "#FFC0CB");  
+        borderGrd.addColorStop(1, "#8B008B");  
+
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, outerRadius, 0, 2 * Math.PI);
+        ctx.fillStyle = borderGrd;
+        ctx.fill();
+
+
+        var innerRadius = 100;
+
+        var bodyGrd = ctx.createRadialGradient(centerX - 30, centerY - 30, 10, centerX, centerY, innerRadius);
+        bodyGrd.addColorStop(0, "white");      
+        bodyGrd.addColorStop(0.2, "#FF69B4");  
+        bodyGrd.addColorStop(1, "#C71585");    
+
+        ctx.beginPath();
+        ctx.arc(centerX, centerY, innerRadius, 0, 2 * Math.PI);
+        ctx.fillStyle = bodyGrd;
+        ctx.fill();
+
+
+        ctx.font = "160px Arial";
+        ctx.fillStyle = "white";
+        ctx.textAlign = "center";
+        ctx.textBaseline = "middle";
+        ctx.fillText("F", centerX, centerY + 10); 
+    </script>
+</body>
+</html>

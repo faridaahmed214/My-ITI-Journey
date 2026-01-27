@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <canvas id="goalCanvas" width="400" height="300" style="border:5px solid black;"></canvas>
+
+    <script>
+        var c = document.getElementById("goalCanvas");
+        var ctx = c.getContext("2d");
+
+        var grd = ctx.createLinearGradient(0, 0, 0, 300);
+        
+      grd.addColorStop(0, "#00BFFF");     
+        grd.addColorStop(0.5, "white");     
+        
+        grd.addColorStop(0.5, "#7CFC00");   
+        grd.addColorStop(1, "White");     
+        
+        ctx.fillStyle = grd;
+        ctx.fillRect(0, 0, 400, 300);
+
+        ctx.beginPath();
+        ctx.lineWidth = 5;
+        ctx.strokeStyle = "black";
+        
+        ctx.moveTo(100, 200); 
+        ctx.lineTo(100, 100); 
+        
+        ctx.lineTo(300, 100); 
+        
+        ctx.lineTo(300, 200); 
+        
+        ctx.stroke();
+    </script>
+</body>
+</html>

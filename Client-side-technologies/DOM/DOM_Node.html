@@ -15,9 +15,8 @@
         border: 3px solid #ff69b4;
         border-radius: 15px;
         width: 80%;
-        height: 280px;
+        height: auto;
         margin: 0 auto;
-        /* شيلنا position: relative من هنا خلاص */
       }
 
       img {
@@ -90,7 +89,7 @@
           const nav = document.querySelector("#nav");
           const navDiv = document.getElementById("navigation");
           const newImg = document.createElement("img");
-          const items = document.querySelectorAll("#nav li"); 
+          const items = document.querySelectorAll("#nav li");
           const links = document.querySelectorAll("#nav a");
 
           newImg.src = originalImg.getAttribute("src");
@@ -112,12 +111,11 @@
           originalImg.style.marginTop = "10px";
 
           navDiv.style.display = "block";
-          navDiv.style.marginTop = "-100px";
+          navDiv.style.marginTop = "-60px";
 
-  
           newImg.style.display = "block";
-          newImg.style.marginTop = "-15px";
           newImg.style.marginLeft = "10px";
+          newImg.style.marginBottom = "10px";
 
           header.appendChild(originalImg);
           header.appendChild(navDiv);
