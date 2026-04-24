@@ -1,0 +1,39 @@
+<section class="hero-carousel">
+  <div class="carousel-container">
+    @for (image of images; track $index) {
+      <div 
+        class="carousel-slide" 
+        [class.active]="$index === currentIndex"
+        [style.background-image]="'url(' + image.url + ')'"
+      >
+        <div class="hero-overlay">
+          <div class="hero-content">
+            <h1>{{ image.title }}</h1>
+            <p>{{ image.subtitle }}</p>
+            <button class="cta-btn" (click)="openModal()">Get Started</button>
+          </div>
+        </div>
+      </div>
+    }
+
+
+    <button class="nav-btn prev" (click)="prevSlide()">
+      <span class="arrow">&lsaquo;</span>
+    </button>
+    <button class="nav-btn next" (click)="nextSlide()">
+      <span class="arrow">&rsaquo;</span>
+    </button>
+
+
+    <div class="carousel-dots">
+      @for (dot of images; track $index) {
+        <button 
+          class="dot" 
+          [class.active]="$index === currentIndex"
+          (click)="goToSlide($index)"
+          [attr.aria-label]="'Go to slide ' + ($index + 1)"
+        ></button>
+      }
+    </div>
+  </div>
+</section>

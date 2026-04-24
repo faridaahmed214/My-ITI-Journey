@@ -1,0 +1,63 @@
+<app-hero />
+
+<section class="dashboard-preview">
+  <div class="container">
+    <div class="section-badge">Fast Overview</div>
+    <h2 class="section-title">Your Productivity at a Glance</h2>
+
+    <div class="stats-grid">
+      <div class="stat-card pending">
+        <div class="stat-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg></div>
+        <div class="stat-info">
+          <h3>Pending</h3>
+          <p class="stat-value">{{ pendingCount() }}</p>
+          <span class="stat-label">Tasks to do</span>
+        </div>
+      </div>
+
+      <div class="stat-card progress">
+        <div class="progress-circle" [style.--percentage]="completionPercentage()">
+          <span class="percentage">{{ completionPercentage() }}%</span>
+        </div>
+        <div class="stat-info">
+          <h3>Progress</h3>
+          <p class="stat-desc">Completion Rate</p>
+        </div>
+      </div>
+
+      <div class="stat-card total">
+        <div class="stat-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg></div>
+        <div class="stat-info">
+          <h3>Lifetime</h3>
+          <p class="stat-value">{{ totalTasks() }}</p>
+          <span class="stat-label">Tasks created</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="recent-tasks-section">
+      <div class="section-header">
+        <h3>Recent Tasks</h3>
+        <a routerLink="/dashboard" class="view-all">View All &rarr;</a>
+      </div>
+
+      <div class="recent-list">
+        @for (task of recentTasks(); track task.id) {
+          <div class="recent-item" [class]="task.priority">
+            <span class="priority-dot"></span>
+            <div class="task-brief">
+              <h4>{{ task.title }}</h4>
+              <span class="task-meta">{{ task.category }} • {{ task.status }}</span>
+            </div>
+            <span class="task-date">{{ task.date }}</span>
+          </div>
+        } @empty {
+          <div class="no-tasks-msg">
+            <p>Your task list is clean! Ready to add something new?</p>
+            <a routerLink="/add-task" class="mini-btn">+ Add Task</a>
+          </div>
+        }
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,17 @@
+<div class="layout-container">
+  <app-toast />
+  <app-header />
+
+  <main>
+    <router-outlet />
+  </main>
+
+  <app-footer />
+
+  <div class="modal-overlay" *ngIf="isModalOpen()" (click)="closeModal()">
+    <div class="modal-content" (click)="$event.stopPropagation()">
+      <app-task-input />
+    </div>
+  </div>
+</div>
+

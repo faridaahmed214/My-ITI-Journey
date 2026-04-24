@@ -1,0 +1,92 @@
+<section class="task-input-section">
+  <div class="input-card">
+    <div class="input-header">
+      <h2>{{ editData() ? 'Edit Task' : 'Create New Task' }}</h2>
+      <p>{{ editData() ? 'Update your task details.' : 'Fill in the details below to organize your day.' }}</p>
+    </div>
+
+    <form
+      class="task-form"
+      (submit)="
+        $event.preventDefault(); 
+        handleAddTask(titleInput.value, descInput.value, dateInput.value, categoryInput.value);
+        titleInput.value = ''; descInput.value = '';
+      "
+    >
+      <div class="form-group">
+        <label for="title">Task Title</label>
+        <input #titleInput type="text" id="title" placeholder="What needs to be done?" [value]="editData()?.title || ''" />
+      </div>
+
+      <div class="form-group">
+        <label for="description">Description</label>
+        <textarea #descInput id="description" rows="3" placeholder="Add some details..." [value]="editData()?.description || ''"></textarea>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label>Priority</label>
+          <div class="priority-selector">
+            <button
+              type="button"
+              class="priority-btn low"
+              [class.active]="selectedPriority === 'low'"
+              (click)="setPriority('low')"
+            >
+              Low
+            </button>
+            <button
+              type="button"
+              class="priority-btn medium"
+              [class.active]="selectedPriority === 'medium'"
+              (click)="setPriority('medium')"
+            >
+              Medium
+            </button>
+            <button
+              type="button"
+              class="priority-btn high"
+              [class.active]="selectedPriority === 'high'"
+              (click)="setPriority('high')"
+            >
+              High
+            </button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="due-date">Due Date</label>
+          <input #dateInput type="date" id="due-date" [value]="editData()?.date || ''" />
+        </div>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="category">Category</label>
+          <select #categoryInput id="category" [value]="editData()?.category || 'work'">
+            <option value="work">Work</option>
+            <option value="personal">Personal</option>
+            <option value="study">Study</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="tags">Tags</label>
+          <input type="text" id="tags" placeholder="urgent, daily, etc." />
+        </div>
+      </div>
+
+      <button type="submit" class="submit-btn">
+        <span class="btn-icon">
+          @if (editData()) {
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+          } @else {
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+          }
+        </span>
+        {{ editData() ? 'Update Task' : 'Add Task' }}
+      </button>
+
+    </form>
+  </div>
+</section>

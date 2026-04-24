@@ -1,0 +1,57 @@
+<div [class]="'card ' + task.priority" [class.completed]="task.status === 'completed'">
+
+  
+  <div class="card-accent"></div>
+
+  <div class="card-body">
+    
+    <div class="card-top">
+      <h3 class="card-title">{{ task.title }}</h3>
+      <span class="status-chip" [class.done]="task.status === 'completed'">
+        <span class="status-dot"></span>
+        {{ task.status === 'completed' ? 'Done' : 'Pending' }}
+      </span>
+    </div>
+
+    
+    <p class="card-description">{{ task.description || 'No description provided.' }}</p>
+
+    
+    <div class="card-meta">
+      <span class="meta-chip category">
+        <span class="chip-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg></span>
+        {{ task.category }}
+      </span>
+      <span class="meta-chip priority-chip">
+        <span class="chip-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon></svg></span>
+        {{ task.priority }}
+      </span>
+      <span class="meta-chip date" *ngIf="task.date">
+        <span class="chip-icon"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg></span>
+        {{ task.date }}
+      </span>
+    </div>
+
+    
+    <div class="card-actions">
+      <button class="action-btn toggle" (click)="onToggleStatus()">
+        <span style="display: flex; align-items: center; gap: 4px;">
+          @if (task.status === 'pending') {
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg> Complete
+          } @else {
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 14 4 9 9 4"></polyline><path d="M20 20v-7a4 4 0 0 0-4-4H4"></path></svg> Reopen
+          }
+        </span>
+      </button>
+      <div class="action-group">
+        <button class="action-btn icon-btn edit" title="Edit" (click)="onEdit()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+        </button>
+        <button class="action-btn icon-btn delete" title="Delete" (click)="onDelete()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"></polyline><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+</div>

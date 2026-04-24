@@ -1,0 +1,114 @@
+<div class="auth-container">
+  <div class="auth-card glass">
+    <div class="auth-header">
+      <div class="auth-logo">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+          <circle cx="8.5" cy="7" r="4"></circle>
+          <line x1="20" y1="8" x2="20" y2="14"></line>
+          <line x1="23" y1="11" x2="17" y2="11"></line>
+        </svg>
+      </div>
+      <h1>Create Account</h1>
+      <p>Join our productivity community today</p>
+    </div>
+
+    <form class="auth-form" [formGroup]="form" (ngSubmit)="onSubmit()">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Full Name</label>
+          <div class="input-wrapper">
+            <span class="input-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+            </span>
+            <input type="text" placeholder="Farida21" formControlName="name" name="name" />
+          </div>
+          @if (form.get('name')?.errors?.['required'] && form.get('name')?.touched) {
+            <p class="helper-text">Name is required</p>
+          }
+          @if (form.get('name')?.errors?.['minlength'] && form.get('name')?.dirty) {
+            <p class="helper-text">Name must be at least 3 characters long</p>
+          }
+          @if (form.get('name')?.errors?.['maxlength'] && form.get('name')?.dirty) {
+            <p class="helper-text">Name must be at most 10 characters long</p>
+          }
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Email Address</label>
+        <div class="input-wrapper">
+          <span class="input-icon">@</span>
+          <input type="email" placeholder="name@example.com" formControlName="email" name="email" />
+        </div>
+        @if (form.get('email')?.errors?.['required'] && form.get('email')?.touched) {
+          <p class="helper-text">Email is required</p>
+        }
+        @if (form.get('email')?.errors?.['email'] && form.get('email')?.dirty) {
+          <p class="helper-text">Enter a valid email address</p>
+        }
+      </div>
+
+      <div class="form-group">
+        <label>Password</label>
+        <div class="input-wrapper">
+          <span class="input-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </span>
+          <input
+            type="password"
+            placeholder="••••••••"
+            formControlName="password"
+            name="password"
+          />
+        </div>
+        @if (form.get('password')?.errors?.['required'] && form.get('password')?.touched) {
+          <p class="helper-text">Password is required</p>
+        }
+        @if (form.get('password')?.errors?.['minlength'] && form.get('password')?.dirty) {
+          <p class="helper-text">Password must be at least 8 characters long</p>
+        }
+      </div>
+
+      <div class="form-group">
+        <label>Confirm Password</label>
+        <div class="input-wrapper">
+          <span class="input-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+          </span>
+          <input type="password" placeholder="••••••••" formControlName="confirmPassword" />
+        </div>
+
+        @if (
+          form.get('confirmPassword')?.errors?.['required'] && form.get('confirmPassword')?.touched
+        ) {
+          <p class="helper-text">Confirm Password is required</p>
+        }
+
+        @if (form.hasError('misMatch') && form.get('confirmPassword')?.dirty) {
+          <p class="helper-text">Passwords do not match!</p>
+        }
+      </div>
+      <button type="submit" class="submit-btn highlight">
+        <span>Get Started</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <polyline points="9 11 12 14 22 4"></polyline>
+          <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path>
+        </svg>
+      </button>
+    </form>
+
+    <div class="auth-footer">
+      <p>Already have an account? <a routerLink="/login">Log In</a></p>
+    </div>
+  </div>
+</div>

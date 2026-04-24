@@ -1,0 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+:root {
+  /* ═══ MIDNIGHT AURORA PALETTE ═══ */
+  --primary: #00d4aa;
+  --primary-hover: #00b894;
+  --primary-light: rgba(0, 212, 170, 0.12);
+  --primary-glow: rgba(0, 212, 170, 0.25);
+  --secondary: #ff6b6b;
+  --accent: #ffd93d;
+  --accent-blue: #6c5ce7;
+
+  /* ═══ DARK SURFACES ═══ */
+  --bg-main: #0a0e1a;
+  --bg-surface: #111827;
+  --bg-surface-soft: #1a2035;
+  --bg-elevated: #1e2642;
+  --bg-card: linear-gradient(145deg, #151c30, #111827);
+
+  /* ═══ TEXT ═══ */
+  --text-main: #e8ecf4;
+  --text-muted: #8892a8;
+  --text-light: #5a6478;
+
+  /* ═══ BORDERS ═══ */
+  --border-color: rgba(255, 255, 255, 0.06);
+  --border-focus: var(--primary);
+  --border-glow: rgba(0, 212, 170, 0.3);
+
+  /* ═══ STATUS COLORS ═══ */
+  --success: #00d4aa;
+  --warning: #ffd93d;
+  --danger: #ff6b6b;
+
+  /* ═══ SHADOWS ═══ */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+  --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.5);
+  --shadow-xl: 0 20px 50px rgba(0, 0, 0, 0.6);
+  --shadow-glow: 0 0 30px var(--primary-glow);
+
+  /* ═══ RADIUS ═══ */
+  --radius-sm: 0.5rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.75rem;
+  --radius-full: 9999px;
+
+  --container-max: 1200px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  min-height: 100vh;
+  line-height: 1.6;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  background-image:
+    radial-gradient(ellipse 600px 400px at 10% 20%, rgba(0, 212, 170, 0.06), transparent),
+    radial-gradient(ellipse 500px 500px at 85% 70%, rgba(108, 92, 231, 0.05), transparent),
+    radial-gradient(ellipse 400px 300px at 50% 90%, rgba(255, 107, 107, 0.04), transparent);
+  background-attachment: fixed;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  line-height: 1.2;
+  color: var(--text-main);
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  font-family: inherit;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+a {
+  color: var(--primary);
+  transition: all 0.2s ease;
+}
+
+a:hover {
+  color: var(--primary-hover);
+}
+
+.app-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* ═══ GLASS MORPHISM (dark variant) ═══ */
+.glass {
+  background: rgba(17, 24, 39, 0.7);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+}
+
+/* ═══ SCROLLBAR (dark) ═══ */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-main);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--bg-elevated);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary);
+}
+
+/* ═══ SELECTION ═══ */
+::selection {
+  background: var(--primary-light);
+  color: var(--primary);
+}

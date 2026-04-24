@@ -1,0 +1,93 @@
+{
+  "users": [
+    {
+      "id": "u1",
+      "userName": "Farida Ahmed",
+      "userEmail": "[EMAIL_ADDRESS]",
+      "userPassword": "[PASSWORD]"
+    },
+    {
+      "id": "v-Z_Dxg51pI",
+      "userName": "Farida21",
+      "userEmail": "Faridaahmed212004@gmail.com",
+      "userPassword": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f"
+    },
+    {
+      "id": "mTpUl7tyYdY",
+      "userName": "malak810",
+      "userEmail": "malakahmed@gmail.com",
+      "userPassword": "ef797c8118f02dfb649607dd5d3f8c7623048c9c063d532cc95c5ed7a898a64f"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "title": "Setup Angular Environment",
+      "description": "Install Angular CLI and create a new standalone project.",
+      "priority": "high",
+      "date": "2026-04-20",
+      "category": "work",
+      "status": "completed",
+      "userId": "u1"
+    },
+    {
+      "id": "t2",
+      "title": "Design Mockups",
+      "description": "Create Figma designs for the Midnight Aurora premium theme.",
+      "priority": "medium",
+      "date": "2026-04-22",
+      "category": "personal",
+      "status": "completed",
+      "userId": "u1"
+    },
+    {
+      "id": "t3",
+      "title": "Integrate JSON Server",
+      "description": "Replace local storage state management with real HTTP calls.",
+      "priority": "high",
+      "date": "2026-04-24",
+      "category": "study",
+      "status": "pending",
+      "userId": "u1"
+    },
+    {
+      "id": "t4",
+      "title": "Prepare Project Presentation",
+      "description": "Create slides for the final evaluation.",
+      "priority": "medium",
+      "date": "2026-04-26",
+      "category": "work",
+      "status": "pending",
+      "userId": "u1"
+    },
+    {
+      "id": "UJ9y6poEKQo",
+      "title": "shopping",
+      "description": "groceries",
+      "priority": "medium",
+      "date": "2026-04-23",
+      "category": "personal",
+      "status": "completed",
+      "userId": "mTpUl7tyYdY"
+    }
+  ],
+  "notifications": [
+    {
+      "id": "n1",
+      "message": "Welcome to Task Manager, Farida!",
+      "type": "info",
+      "time": "2026-04-23T10:00:00Z",
+      "isRead": false,
+      "userId": "u1"
+    },
+    {
+      "id": "Z2_OygOxGj0",
+      "message": "Task deleted successfully!",
+      "type": "warning",
+      "time": "2026-04-24T15:39:26.561Z",
+      "isRead": false,
+      "userId": "v-Z_Dxg51pI"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
