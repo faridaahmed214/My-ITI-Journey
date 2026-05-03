@@ -1,0 +1,81 @@
+@import 'variables';
+@for $i from 1 through 12 {
+  .col-#{$i} { width: (100% / 12) * $i; }
+}
+
+@media (min-width: 768px) {
+  @for $i from 1 through 12 {
+    .col-md-#{$i} { width: (100% / 12) * $i; }
+  }
+}
+
+@media (min-width: 1024px) {
+  @for $i from 1 through 12 {
+    .col-lg-#{$i} { width: (100% / 12) * $i; }
+  }
+}
+* {
+  box-sizing: border-box;
+}
+.form-container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: 'Segoe UI', sans-serif;
+
+  h2 {
+    color: $text-dark;
+    margin-bottom: 20px;
+    border-left: 5px solid $primary-color;
+    padding-left: 15px;
+  }
+
+  .grid-row {
+    display: flex;
+    flex-wrap: wrap; 
+    margin: 0 -10px; 
+  }
+
+  .field {
+    padding: 10px; 
+    display: flex;
+    flex-direction: column;
+
+    label {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 5px;
+      color: lighten($text-dark, 20%);
+    }
+
+    input {
+      padding: 12px;
+      border: 1px solid $border-color;
+      border-radius: 8px;
+      background-color: white;
+      transition: all 0.3s ease;
+
+      &:focus {
+        outline: none;
+        border-color: $primary-color;
+        box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+      }
+    }
+  }
+
+  .submit-btn {
+    margin-top: 20px;
+    padding: 12px 30px;
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    
+    &:hover {
+      background-color: darken($primary-color, 10%);
+      transform: translateY(-1px);
+    }
+  }
+}

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #f0f2f5;
+            overflow: hidden;
+        }
+
+        .wrapper {
+            background-color: #38bdf8;
+            padding: 8vw; 
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: background-color 1s ease;
+            box-shadow: 0 0 50px rgba(0,0,0,0.1);
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 12vw);
+            grid-template-rows: repeat(3, 12vw);
+            gap: 1.5vw;
+            grid-template-areas:
+                "i1 i1 i2"
+                "i5 i3 i2"
+                "i5 i4 i4";
+        }
+
+        .grid-item {
+            background-color: #333;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2.5vw; 
+            font-weight: bold;
+            border-radius: 1vw;
+            transition: all 0.5s ease;
+        }
+
+        .item-1 { grid-area: i1; }
+        .item-2 { grid-area: i2; }
+        .item-3 { grid-area: i3; }
+        .item-4 { grid-area: i4; }
+        .item-5 { grid-area: i5; }
+
+        @keyframes continuous-spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @media (max-width: 992px) {
+            .container {
+                animation: continuous-spin 4s linear infinite;
+            }
+
+            .item-1 { background-color: #ffadad; color: #333; }
+            .item-2 { background-color: #ffd6a5; color: #333; }
+            .item-3 { background-color: #fdffb6; color: #333; }
+            .item-4 { background-color: #caffbf; color: #333; }
+            .item-5 { background-color: #9bf6ff; color: #333; }
+            
+            .wrapper {
+                background-color: #a0c4ff;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .wrapper {
+                padding: 12vw;
+            }
+            .container {
+                grid-template-columns: repeat(3, 18vw);
+                grid-template-rows: repeat(3, 18vw);
+                gap: 2vw;
+            }
+            .grid-item {
+                font-size: 4vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <div class="grid-item item-1">1</div>
+            <div class="grid-item item-2">2</div>
+            <div class="grid-item item-3">3</div>
+            <div class="grid-item item-4">4</div>
+            <div class="grid-item item-5">5</div>
+        </div>
+    </div>
+</body>
+</html>

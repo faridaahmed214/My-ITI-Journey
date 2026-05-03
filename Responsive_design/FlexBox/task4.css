@@ -1,0 +1,118 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fefae0;
+  font-family: "Segoe UI", sans-serif;
+  overflow-x: hidden;
+}
+
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #a8dadc;
+  padding: 15px;
+  border-radius: 12px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.nav-menu {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.nav-menu a {
+  text-decoration: none;
+  color: #1d3557;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.hero-box {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  background-color: #f1faee;
+  padding: 25px;
+  border-radius: 15px;
+  border: 2px solid #a8dadc;
+}
+
+.intro-content,
+.slider-box {
+  flex: 1 1 300px;
+  min-width: 280px;
+}
+
+.slider-box {
+  background-color: #ffd166;
+  height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.card {
+  flex: 1 1 30%;
+  min-width: 250px;
+  background-color: #a8dadc;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+.twitter-strip {
+  background-color: #ffd166;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.bottom-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #457b9d;
+  color: white;
+  padding: 15px;
+  border-radius: 12px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 10px;
+}
+
+.footer-links a {
+  color: white;
+  text-decoration: none;
+}

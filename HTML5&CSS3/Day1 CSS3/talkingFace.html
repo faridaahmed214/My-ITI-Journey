@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: #15232d;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .face-container {
+        position: relative;
+        width: 150px;
+        height: 150px;
+      }
+
+      .half {
+        position: absolute;
+        width: 100%;
+        height: 50%;
+        background-color: #f1c40f;
+        left: 0;
+      }
+
+      .top {
+        top: 0;
+        border-radius: 150px 150px 0 0;
+        transform-origin: bottom center;
+        animation: talkTop 0.4s infinite ;
+        z-index: 2;
+      }
+
+      .bottom {
+        bottom: 0;
+        border-radius: 0 0 150px 150px;
+        transform-origin: top center;
+        animation: talkBottom 0.4s infinite ;
+        z-index: 1;
+      }
+
+      .eye {
+        position: absolute;
+        top: 30px;
+        right: 40px;
+        width: 15px;
+        height: 15px;
+        background-color: #000;
+        border-radius: 100%;
+        z-index: 3;
+      }
+
+      @keyframes talkTop {
+
+        100% {
+          transform: rotate(-25deg);
+        }
+      }
+
+      @keyframes talkBottom {
+
+        100% {
+          transform: rotate(25deg);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="face-container">
+      <div class="eye"></div>
+
+      <div class="half top"></div>
+
+      <div class="half bottom"></div>
+    </div>
+  </body>
+</html>

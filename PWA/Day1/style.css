@@ -1,0 +1,72 @@
+body {
+    font-family: 'Tajawal', sans-serif; /* خط عربي نظيف */
+    background-color: #f0fdf4; /* خلفية خضراء فاتحة جداً */
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+    color: #2d3748;
+}
+
+.container {
+    background: white;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    max-width: 500px;
+    margin: 40px auto;
+}
+
+.logo { 
+    color: #38b2ac; 
+    font-size: 3rem; 
+    margin-bottom: 10px;
+}
+
+.subtitle { color: #718096; }
+
+/* زرار التثبيت */
+.btn-install {
+    background-color: #319795;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 50px;
+    border: none;
+    font-size: 16px;
+    font-family: 'Tajawal', sans-serif;
+    cursor: pointer;
+    margin: 20px 0;
+    transition: transform 0.2s;
+}
+
+.btn-install:hover { 
+    background-color: #2c7a7b; 
+    transform: scale(1.05);
+}
+
+/* كروت الأذكار */
+.azkar-card {
+    background: #f7fafc;
+    border-right: 5px solid #38b2ac; /* خط جمالي يمين الكارت */
+    padding: 15px;
+    border-radius: 8px;
+    margin-top: 15px;
+    text-align: right;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.azkar-card h3 { margin-top: 0; color: #2d3748; }
+
+/* أزرار العودة */
+.btn {
+    text-decoration: none;
+    display: inline-block;
+    background: #edf2f7;
+    color: #2d3748;
+    padding: 10px 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.hint { font-size: 0.9rem; color: #a0aec0; margin-top: 30px; }
+.error-page h1 { color: #e53e3e; }

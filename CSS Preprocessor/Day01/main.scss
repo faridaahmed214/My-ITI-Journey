@@ -1,0 +1,47 @@
+@import 'variables'; 
+
+.main {
+    text-align: center;
+    padding: 20px;
+
+    &-title {
+        color: $primary-color;
+    }
+
+    &-subtitle {
+        color: $secondary-color;
+    }
+
+    &-btn {
+        background-color: $primary-color;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+
+        &:hover {
+            background-color: $secondary-color;
+        }
+    }
+}
+
+@each $size in $font-sizes {
+    .font-#{$size}px {
+        font-size: #{$size}px;
+    }
+}
+
+.finish-btn {
+    background-color: #2b34b6;
+    color: white;
+    padding: 15px;
+    border: none;
+
+    @media (min-width: 760px) {
+        width: 50%;
+    }
+
+    @media (max-width: 759px) {
+        width: 100%;
+    }
+}

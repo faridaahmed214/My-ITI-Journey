@@ -1,0 +1,27 @@
+.card {
+  border: none !important;
+  border-radius: 2.5rem !important; 
+  margin-bottom: $mb-4; 
+  box-shadow: 0 1rem 3rem rgba(0,0,0,0.175) !important; 
+
+  &.glass {
+    @include glass-card;
+    padding: $p-5; 
+    
+    .feature-card {
+      padding: $p-4 !important;
+      border-radius: 1.5rem !important; 
+      @include flex-center; 
+      flex-direction: column;
+      text-align: center;
+      padding: 2rem;
+    }
+  }
+
+  &[style*="linear-gradient"],
+  &.journey-card {
+    @include journey-gradient;
+    padding: $p-4 !important;
+    text-align: center;
+  }
+}

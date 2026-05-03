@@ -1,0 +1,31 @@
+@mixin glass-card {
+  background: $glass-bg;
+  backdrop-filter: blur($blur-val);
+  border: 1px solid $glass-border;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin circle-size($size) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+}
+
+@mixin journey-gradient {
+  background: linear-gradient(45deg, $primary-pink, $primary-yellow);
+}
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == tablet {
+    @media (max-width: $bp-tablet) { @content; }
+  }
+  @if $breakpoint == mobile {
+    @media (max-width: $bp-mobile) { @content; }
+  }
+}

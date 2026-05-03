@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f4f7f9;
+        display: flex;
+        justify-content: center;
+        padding: 20px;
+      }
+
+      table {
+        width: 80%;
+        border-collapse: collapse;
+        background-color: white;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+
+      thead {
+        background-color: #15232d;
+        color: white;
+      }
+
+      th,
+      td {
+        padding: 12px 15px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      th {
+        font-size: 16px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      tbody tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+
+      tbody tr:hover {
+        background-color: #e6f2ff;
+      }
+
+      .error {
+        color: red;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="table-container">Load</div>
+
+    <script>
+      const url = "https://jsonplaceholder.typicode.com/users";
+
+      fetch(url)
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`HTTP Error! Status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then((users) => {
+          createTable(users);
+        })
+        .catch((error) => {
+          const container = document.getElementById("table-container");
+          container.innerHTML = `<p class="error">Failed to load data: ${error.message}</p>`;
+          console.error("Fetch error:", error);
+        });
+
+      function createTable(data) {
+        const container = document.getElementById("table-container");
+        container.innerHTML = "";
+
+        const table = document.createElement("table");
+        const thead = document.createElement("thead");
+        const headerRow = document.createElement("tr");
+
+        const headers = ["ID", "Name", "Email", "City", "Company"];
+
+        headers.forEach((text) => {
+          const th = document.createElement("th");
+          th.innerText = text;
+          headerRow.appendChild(th);
+        });
+
+        thead.appendChild(headerRow);
+        table.appendChild(thead);
+
+        const tbody = document.createElement("tbody");
+
+        data.forEach((user) => {
+          const row = document.createElement("tr");
+          const idCell = document.createElement("td");
+          idCell.innerText = user.id;
+          row.appendChild(idCell);
+
+          const nameCell = document.createElement("td");
+          nameCell.innerText = user.name;
+          row.appendChild(nameCell);
+          const emailCell = document.createElement("td");
+          emailCell.innerText = user.email;
+          row.appendChild(emailCell);
+          const cityCell = document.createElement("td");
+          cityCell.innerText = user.address.city;
+          row.appendChild(cityCell);
+          const compCell = document.createElement("td");
+          compCell.innerText = user.company.name;
+          row.appendChild(compCell);
+
+          tbody.appendChild(row);
+        });
+
+        table.appendChild(tbody);
+        container.appendChild(table);
+      }
+    </script>
+  </body>
+</html>

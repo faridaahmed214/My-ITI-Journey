@@ -1,0 +1,15 @@
+
+@total-columns: 12;
+
+.generate-columns(@index) when (@index > 0) {
+  .generate-columns(@index - 1);
+
+  .col-@{index} {
+    width: (100% / @total-columns) * @index;
+    float: left;
+    box-sizing: border-box;
+    padding: 10px;
+  }
+}
+
+.generate-columns(@total-columns);

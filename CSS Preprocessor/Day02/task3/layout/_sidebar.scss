@@ -1,0 +1,83 @@
+.nav-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding-top: 2rem;
+  align-items: center;
+
+  .profile-img {
+    @include circle-size(100px);
+    border: 2px solid $info-blue;
+    min-width: 70px;
+    min-height: 70px;
+    object-fit: cover;
+    max-width: 100%; 
+    aspect-ratio: 1/1; 
+  }
+
+  .nav-icons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+
+    .nav-img {
+      @include circle-size(70px);
+      opacity: 0.75;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        opacity: 1;
+        transform: scale(1.1);
+      }
+    }
+
+    .add-btn {
+      @include circle-size(50px);
+      @include flex-center;
+      font-weight: bold;
+      color: $info-blue;
+      cursor: pointer;
+    }
+  }
+
+  @include respond(tablet) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    gap: 1.5rem;
+
+    .profile-img {
+      margin-bottom: 0; 
+      margin-right: 0; 
+      width: 80px; 
+      height: 80px;
+    }
+
+    .nav-icons {
+      flex-direction: row;
+      gap: 1.5rem;
+    }
+  }
+
+  @include respond(mobile) {
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center; 
+    padding-top: 2rem;
+    
+    .profile-img {
+      margin-bottom: 1.5rem; 
+      margin-right: 0;
+      width: 90px;
+      height: 90px;
+    }
+
+    .nav-icons {
+      flex-direction: column;
+    }
+  }
+}

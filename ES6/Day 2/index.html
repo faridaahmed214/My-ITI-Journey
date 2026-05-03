@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>day 2</title>
+    <style>
+      body {
+        background-color: #1e1e1e;
+        color: #d4d4d4;
+        font-family: "Consolas", "Monaco", "Courier New", monospace;
+        padding: 20px;
+        margin: 0;
+      }
+      .console-container {
+        background-color: #000;
+        border: 1px solid #333;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+        max-width: 800px;
+        margin: 0 auto;
+      }
+      .log-entry {
+        border-bottom: 1px solid #222;
+        padding: 8px 0;
+        line-height: 1.5;
+        white-space: pre-wrap;
+      }
+      .log-entry:last-child {
+        border-bottom: none;
+      }
+      .label {
+        color: #569cd6;
+        font-weight: bold;
+        margin-right: 10px;
+      }
+      .string {
+        color: #ce9178;
+      }
+      .number {
+        color: #b5cea8;
+      }
+      .boolean {
+        color: #569cd6;
+      }
+      .key {
+        color: #9cdcfe;
+      }
+      .error {
+        color: #f44336;
+        background-color: rgba(244, 67, 54, 0.1);
+        padding: 5px;
+        border-left: 3px solid #f44336;
+      }
+      h2 {
+        text-align: center;
+        color: #fff;
+        margin-bottom: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>day 2</h2>
+    <div class="console-container" id="output"></div>
+
+    <script>
+      const outputDiv = document.getElementById("output");
+
+      function formatValue(val) {
+        if (typeof val === "string")
+          return `<span class="string">"${val}"</span>`;
+        if (typeof val === "number")
+          return `<span class="number">${val}</span>`;
+        if (typeof val === "boolean")
+          return `<span class="boolean">${val}</span>`;
+        if (Array.isArray(val)) return `[ ${val.map(formatValue).join(", ")} ]`;
+        if (typeof val === "object" && val !== null) {
+          return (
+            `{ <br>` +
+            Object.entries(val)
+              .map(
+                ([k, v]) =>
+                  `&nbsp;&nbsp;<span class="key">${k}</span>: ${formatValue(v)}`,
+              )
+              .join(",<br>") +
+            `<br>}`
+          );
+        }
+        return val;
+      }
+
+      function appendToScreen(type, args) {
+        const div = document.createElement("div");
+        div.className = `log-entry ${type}`;
+
+        if (type === "error") {
+          div.innerHTML = `❌ <strong>Error:</strong> ${args[0].message || args[0]}`;
+        } else {
+          div.innerHTML =
+            `<span class="label">➜</span> ` + args.map(formatValue).join(" ");
+        }
+        outputDiv.appendChild(div);
+      }
+
+      const originalLog = console.log;
+      console.log = function (...args) {
+        appendToScreen("log", args);
+        originalLog.apply(console, args);
+      };
+
+      const originalError = console.error;
+      console.error = function (...args) {
+        appendToScreen("error", args);
+        originalError.apply(console, args);
+      };
+
+      window.onerror = function (message, source, lineno, colno, error) {
+        console.error(error || message);
+        return true;
+      };
+    </script>
+
+    <script src="default.js"></script>
+    <script src="fibonacci.js"></script>
+    <script src="replace.js"></script>
+    <script src="iterator.js"></script>
+  </body>
+</html>

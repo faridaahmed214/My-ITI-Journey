@@ -1,0 +1,49 @@
+.main {
+  text-align: center;
+  padding: 20px;
+}
+.main-title {
+  color: #db34ca;
+}
+.main-subtitle {
+  color: #8b1176;
+}
+.main-btn {
+  background-color: #db34ca;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+}
+.main-btn:hover {
+  background-color: #8b1176;
+}
+
+.font-18px {
+  font-size: 18px;
+}
+
+.font-16px {
+  font-size: 16px;
+}
+
+.font-14px {
+  font-size: 14px;
+}
+
+.finish-btn {
+  background-color: #2b34b6;
+  color: white;
+  padding: 15px;
+  border: none;
+}
+@media (min-width: 760px) {
+  .finish-btn {
+    width: 50%;
+  }
+}
+@media (max-width: 759px) {
+  .finish-btn {
+    width: 100%;
+  }
+}/*# sourceMappingURL=main.css.map */

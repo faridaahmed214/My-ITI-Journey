@@ -1,0 +1,240 @@
+:root {
+  --bg-gradient: linear-gradient(135deg, #090b14, #1b0f2e, #0f2b38);
+  --card-bg: rgba(255, 255, 255, 0.05);
+  --card-border: rgba(0, 255, 255, 0.4);
+  --text-color: #e2e8f0;
+  --accent: #ff007f; /* Neon Hot Pink */
+  --matched-glow: rgba(0, 255, 255, 0.8); /* Neon Cyan */
+  --font-main: 'Outfit', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-main);
+  background: var(--bg-gradient);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+}
+
+.game-wrapper {
+  max-width: 1000px; /* Widened for 6 columns */
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: center;
+}
+
+.game-header {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 1.5rem 3rem;
+  border-radius: 16px;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  width: 100%;
+}
+
+.game-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  letter-spacing: 1px;
+}
+
+.game-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.25rem;
+}
+
+.game-info span b {
+  color: var(--accent);
+  font-size: 1.5rem;
+}
+
+.btn {
+  background: var(--accent);
+  color: #111;
+  border: none;
+  padding: 0.5rem 1.5rem;
+  font-size: 1.1rem;
+  font-family: var(--font-main);
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 15px rgba(245, 158, 11, 0.3);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(245, 158, 11, 0.5);
+  background: #fbbf24;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1.5rem;
+  perspective: 1000px; /* Gives the 3D flip effect space */
+}
+
+/* CARDS */
+.card {
+  width: 120px;
+  height: 120px;
+  cursor: pointer;
+  perspective: 1000px;
+}
+
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s cubic-bezier(0.4, 0.0, 0.2, 1);
+  transform-style: preserve-3d;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  border-radius: 16px;
+}
+
+.card.flipped .card-inner,
+.card.matched .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--card-border);
+}
+
+/* Front is what you see before flipping */
+.card-front {
+  background: rgba(10, 10, 20, 0.8);
+  backdrop-filter: blur(5px);
+  /* Cyber grid pattern */
+  background-image: 
+    linear-gradient(var(--accent) 1px, transparent 1px),
+    linear-gradient(90deg, var(--accent) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Back is what you see when flipped (the image) */
+.card-back {
+  background: #0d0614;
+  transform: rotateY(180deg);
+  overflow: hidden;
+}
+
+.card-back img {
+  width: 85%;
+  height: 85%;
+  object-fit: contain;
+  filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.4));
+}
+
+/* Matched Card styling */
+.card.matched .card-inner {
+  box-shadow: 0 0 20px var(--matched-glow);
+  animation: pulseMatch 1.5s infinite alternate;
+}
+
+.card.matched {
+  cursor: default;
+}
+
+@keyframes pulseMatch {
+  from { box-shadow: 0 0 15px var(--matched-glow); transform: rotateY(180deg) scale(1); }
+  to { box-shadow: 0 0 30px var(--matched-glow); transform: rotateY(180deg) scale(1.05); }
+}
+
+@media (max-width: 600px) {
+  .grid-container {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+  }
+  .card {
+    width: 75px;
+    height: 75px;
+  }
+  .game-header h1 {
+    font-size: 1.8rem;
+  }
+}
+
+/* OVERLAY STYLES */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+.overlay.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.overlay-content {
+  background: rgba(15, 32, 39, 0.9);
+  padding: 3rem;
+  border-radius: 20px;
+  text-align: center;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 50px rgba(245, 158, 11, 0.4);
+  transform: scale(1);
+  transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.overlay.hidden .overlay-content {
+  transform: scale(0.8);
+}
+
+.game-over-text {
+  font-size: 4rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  margin-bottom: 1rem;
+  text-shadow: 0 4px 15px rgba(245, 158, 11, 0.6);
+}
+
+.overlay-content p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  color: #fff;
+}
