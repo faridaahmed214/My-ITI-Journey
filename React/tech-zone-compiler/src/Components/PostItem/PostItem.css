@@ -1,0 +1,135 @@
+.post-card {
+  background-color: var(--code-bg);
+  border: 1px solid var(--accent-border);
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.post-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--accent);
+  box-shadow: 0 10px 30px rgba(0, 229, 255, 0.15);
+}
+
+.post-card-image {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-bottom: 1px solid var(--accent-border);
+}
+
+.post-card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.post-card:hover .post-card-image img {
+  transform: scale(1.05);
+}
+
+.post-card-header {
+  padding: 1.5rem 1.5rem 0.5rem;
+}
+
+.post-card-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  line-height: 1.4;
+  color: var(--text-h);
+}
+
+.post-card-body {
+  padding: 0.5rem 1.5rem 1.5rem;
+  flex-grow: 1;
+}
+
+.post-card-body p {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text);
+  opacity: 0.85;
+}
+
+.post-card-footer {
+  padding: 1.5rem;
+  background-color: rgba(255, 255, 255, 0.02);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.post-tag {
+  font-size: 0.75rem;
+  color: var(--accent);
+  background-color: var(--accent-bg);
+  padding: 0.2rem 0.6rem;
+  border-radius: 4px;
+  font-family: var(--mono);
+}
+
+.post-actions {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.vote-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.vote-btn {
+  background: none;
+  border: 1px solid transparent;
+  color: var(--text);
+  cursor: pointer;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  opacity: 0.6;
+}
+
+.vote-btn:hover {
+  opacity: 1;
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--accent);
+}
+
+.vote-count {
+  font-size: 0.9rem;
+  font-weight: bold;
+  font-family: var(--mono);
+}
+
+.vote-count.positive { color: #00ff41; }
+.vote-count.negative { color: #ff3333; }
+
+.post-meta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  opacity: 0.6;
+  font-family: var(--mono);
+}
+
+.post-author {
+  color: var(--accent);
+}

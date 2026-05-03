@@ -1,0 +1,70 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "React 19: The Era of Actions",
+      "slug": "react-19-actions-guide",
+      "category": "Frontend Development",
+      "image": "https://images.unsplash.com/photo-1633356122544-f134324a6cee?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      "tags": ["React", "JavaScript", "WebDev"],
+      "description": "React 19 introduces 'Actions' to handle data mutations and state transitions automatically. New hooks like useActionState and useOptimistic eliminate the need for manual loading and error states in forms.",
+      "author": "React Core Team",
+      "published_at": "2024-12-05T10:00:00Z"
+    },
+    {
+      "id": "2",
+      "title": "Next.js 15: Production-Ready Stability",
+      "slug": "nextjs-15-features",
+      "category": "Frameworks",
+      "image": "https://images.unsplash.com/photo-1618477388954-7852f32655ec?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      "tags": ["NextJS", "Vercel", "Fullstack"],
+      "description": "Next.js 15 brings stable Turbopack for local development, async request APIs, and full support for the React 19 Compiler. It marks a shift towards more predictable caching semantics for better developer control.",
+      "author": "Vercel Engineering",
+      "published_at": "2024-10-21T14:30:00Z"
+    },
+    {
+      "id": "3",
+      "title": "CSS Container Queries are Now Baseline",
+      "slug": "css-container-queries-2025",
+      "category": "Web Design",
+      "image": "https://images.unsplash.com/photo-1507721999472-8ed4421c4af2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      "tags": ["CSS", "Responsive", "UI/UX"],
+      "description": "Stop relying solely on viewport width! Container Queries allow components to adapt their layout based on their parent's size. They are now widely available across all major browsers (Baseline 2025).",
+      "author": "Web Standards Board",
+      "published_at": "2025-01-15T09:15:00Z"
+    },
+    {
+      "id": "4",
+      "title": "VS Code Tip: REST Client Extension",
+      "slug": "vscode-rest-client-tip",
+      "category": "Developer Tools",
+      "image": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      "tags": ["VSCode", "API", "Productivity"],
+      "description": "Stop switching to external apps to test your APIs. The REST Client extension lets you send HTTP requests and view responses directly in your editor using simple .http files that you can commit to Git.",
+      "author": "Tooling Expert",
+      "published_at": "2025-02-10T11:45:00Z"
+    },
+    {
+      "id": "5",
+      "title": "The Magic of the CSS :has() Selector",
+      "slug": "css-has-selector-power",
+      "category": "Frontend Development",
+      "image": "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      "tags": ["CSS", "Tricks", "Design"],
+      "description": "The 'parent selector' is finally here. :has() allows you to style an element based on its children or their state, solving years of layout logic that previously required JavaScript.",
+      "author": "Styling Guru",
+      "published_at": "2025-03-01T16:20:00Z"
+    },
+    {
+      "id": "6",
+      "title": "GitHub Copilot: AI Refactoring in 2025",
+      "slug": "ai-assisted-coding-future",
+      "category": "Artificial Intelligence",
+      "image": "https://images.unsplash.com/photo-1677442136019-21780ecad995?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80",
+      "tags": ["AI", "Coding", "GitHub"],
+      "description": "AI in 2025 is no longer just for autocomplete. Modern tools now suggest full architectural refactors, security patches, and automated unit test generation directly within your workflow.",
+      "author": "AI Researcher",
+      "published_at": "2025-04-12T13:00:00Z"
+    }
+  ]
+}

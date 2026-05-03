@@ -1,0 +1,125 @@
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(5, 10, 6, 0.7);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  width: 90%;
+  max-width: 800px;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  animation: modalFadeIn 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.close-modal-btn {
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: var(--accent);
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.3s ease;
+}
+
+.close-modal-btn:hover {
+  color: #ff3333;
+  text-shadow: 0 0 10px #ff3333;
+  transform: scale(1.2);
+}
+
+.floating-btn {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background-color: #050a06;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  font-size: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+  padding-bottom: 5px;
+}
+
+.floating-btn:hover {
+  background-color: var(--accent);
+  color: #050a06;
+  box-shadow: 0 0 25px rgba(0, 229, 255, 0.8);
+  transform: scale(1.1);
+}
+
+.floating-btn.open:hover {
+  background-color: #ff3333;
+  color: #fff;
+  box-shadow: 0 0 25px rgba(255, 50, 50, 0.8);
+}
+
+.main-content-layout {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.form-sidebar {
+  position: sticky;
+  top: 2rem;
+  align-self: start;
+}
+
+.posts-content {
+  width: 100%;
+}
+
+@media (max-width: 992px) {
+  .main-content-layout {
+    grid-template-columns: 1fr;
+  }
+  .form-sidebar {
+    position: relative;
+    top: 0;
+  }
+}

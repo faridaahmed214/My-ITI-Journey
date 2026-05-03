@@ -26,7 +26,8 @@ class App extends PureComponent {
       error: null
     };
   }
-    componentDidMount() {
+
+  componentDidMount() {
     axios.get('/data.json')
       .then(response => {
         this.setState({
@@ -42,9 +43,6 @@ class App extends PureComponent {
         });
       });
   }
- addNewPost = (post) => {
-  this.setState(prevState => ({ posts: [post, ...prevState.posts] }));
-};
 
   toggleForm = () => {
     this.setState(
@@ -52,8 +50,15 @@ class App extends PureComponent {
     );
   };
 
+  handleAddPost = (newPost) => {
+    this.setState(prevState => ({
+      posts: [newPost, ...prevState.posts],
+      isFormOpen: false // close form after adding
+    }));
+  };
+
   render() {
-    const { isFormOpen } = this.state;
+    const { isFormOpen, posts, isLoading, error } = this.state;
 
     return (
       <div className="app-container">
@@ -78,13 +83,13 @@ class App extends PureComponent {
         
         <Navbar />
         <Slider />
-        <Posts posts={this.state.posts} isLoading={this.state.isLoading} error={this.state.error} />
+        <Posts posts={posts} isLoading={isLoading} error={error} />
         
         {isFormOpen && (
           <div className="modal-overlay" onClick={this.toggleForm}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
               <button className="close-modal-btn" onClick={this.toggleForm}>&times;</button>
-              <ItemForm closeForm={this.toggleForm} onAdd={this.addNewPost} />
+              <ItemForm onAddPost={this.handleAddPost} />
             </div>
           </div>
         )}

@@ -1,0 +1,144 @@
+.footer {
+  background-color: #050a06;
+  color: var(--text);
+  padding: 4rem 2rem 2rem;
+  position: relative;
+  overflow: hidden;
+  border-top: 1px solid rgba(0, 229, 255, 0.2);
+}
+
+.footer-glow {
+  position: absolute;
+  bottom: -50px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 100px;
+  background: radial-gradient(ellipse at center, rgba(0, 229, 255, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+.brand-title {
+  font-size: 2rem;
+  margin: 0 0 0.5rem;
+  letter-spacing: 2px;
+}
+
+.brand-tagline {
+  color: var(--text);
+  opacity: 0.7;
+  font-family: var(--mono);
+  font-size: 0.9rem;
+}
+
+.section-title {
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: var(--text);
+  opacity: 0.8;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+}
+
+.link-prefix {
+  color: var(--accent);
+  margin-right: 8px;
+  font-family: var(--mono);
+}
+
+.footer-link:hover {
+  opacity: 1;
+  color: var(--accent);
+  transform: translateX(5px);
+}
+
+.social-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.social-link {
+  text-decoration: none;
+  color: var(--bg);
+  background-color: var(--text);
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  font-weight: bold;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+.social-link:hover {
+  background-color: var(--accent);
+  box-shadow: 0 0 15px rgba(0, 229, 255, 0.6);
+  transform: translateY(-5px);
+}
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 4rem auto 0;
+  text-align: center;
+}
+
+.footer-divider {
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(0, 229, 255, 0.3), transparent);
+  margin-bottom: 2rem;
+}
+
+.bottom-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+
+@media (max-width: 768px) {
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+    text-align: center;
+  }
+  
+  .footer-link {
+    justify-content: center;
+  }
+  
+  .social-links {
+    justify-content: center;
+  }
+  
+  .bottom-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+}
