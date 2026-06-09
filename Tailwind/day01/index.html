@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en" class="h-full bg-slate-950 text-slate-100">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Day 01 of my ITI journey - setting up Tailwind CSS v4 and building a premium developer dashboard."
+    />
+    <title>My ITI Journey - Day 01</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="./src/input.css" />
+
+    <style>
+      body {
+        font-family: "Plus Jakarta Sans", "Outfit", sans-serif;
+      }
+      h1,
+      h2,
+      h3,
+      .font-display {
+        font-family: "Outfit", sans-serif;
+      }
+    </style>
+  </head>
+  <body
+    class="min-h-screen bg-slate-950 text-slate-100 flex flex-col font-sans antialiased bg-radial-[at_top] from-slate-900 via-slate-950 to-black"
+  >
+    <div class="w-full bg-transparent py-12 flex items-center justify-center">
+      <h1
+        class="text-6xl md:text-7xl font-extrabold tracking-tight text-sky-400 text-center font-display"
+      >
+        <span class="block md:hidden">Small Screen</span>
+
+        <span class="hidden md:block lg:hidden">Medium Screen</span>
+
+        <span class="hidden lg:block">Large Screen</span>
+      </h1>
+    </div>
+
+    <div class="w-full max-w-6xl mx-auto px-4 md:px-8 pb-16">
+      <div
+        class="bg-slate-100 rounded-2xl shadow-2xl overflow-hidden text-slate-800 border border-slate-200"
+      >
+        <div class="grid grid-cols-1 lg:grid-cols-12 bg-white items-center">
+          <div
+            class="p-8 md:p-12 lg:col-span-5 flex flex-col justify-between h-full order-2 lg:order-1"
+          >
+            <div>
+              <div class="flex items-center space-x-2">
+                <span class="text-xl md:text-3xl font-bold text-slate-900 tracking-tight"
+                  >Work<span class="text-sky-500">cation</span></span
+                >
+              </div>
+
+              <h2
+                class="mt-8 text-3xl md:text-4xl font-extrabold text-slate-900 leading-tight"
+              >
+                You can work from anywhere. <br />
+                <span class="text-sky-500">Take advantage of it.</span>
+              </h2>
+
+              <p
+                class="mt-4 text-slate-600 text-sm md:text-base leading-relaxed"
+              >
+                Workcation helps you find work-friendly rentals in beautiful
+                locations so you can enjoy some nice weather even when you're
+                not on vacation.
+              </p>
+            </div>
+
+            <div class="mt-8">
+              <button
+                id="book-btn"
+                class="bg-sky-500 hover:bg-sky-400 text-white font-bold text-xs tracking-wider uppercase px-6 py-3.5 rounded-lg shadow-md hover:shadow-lg transition-all duration-200 transform hover:scale-[1.02]"
+              >
+                Book your escape
+              </button>
+            </div>
+          </div>
+
+          <div
+            class="lg:col-span-7 p-6 md:p-8 lg:p-10 flex items-center justify-center order-1 lg:order-2"
+          >
+            <div
+              class="relative w-full h-[250px] sm:h-[350px] lg:h-[400px] rounded-2xl overflow-hidden shadow-lg border border-slate-200/50"
+            >
+              <img
+                class="w-full h-full object-cover object-center"
+                src="https://images.unsplash.com/photo-1693633495416-841a500092f3?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8YmVhY2glMjBoaWphYmklMjBnaXJsfGVufDB8fDB8fHww"
+                alt="Woman working on beach lounge chair"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="p-8 md:p-12 bg-slate-100/60 border-t border-slate-200/80">
+          <div>
+            <h3 class="text-xl font-bold text-slate-900">
+              Popular destinations
+            </h3>
+            <p class="text-sm text-slate-500 mt-1">
+              A selection of great work-friendly cities with lots to see and
+              explore.
+            </p>
+          </div>
+
+          <!-- Cities Grid -->
+          <div
+            class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-8"
+          >
+            <div
+              class="flex bg-white rounded-xl shadow-md border border-slate-200/30 overflow-hidden hover:shadow-lg transition-all duration-200"
+            >
+              <img
+                class="w-32 h-32 object-cover flex-shrink-0"
+                src="https://images.unsplash.com/photo-1507984211203-76701d7bb120?auto=format&fit=crop&w=300&h=300&q=80"
+                alt="Toronto"
+              />
+              <div class="p-4 flex flex-col justify-between">
+                <div>
+                  <h4 class="font-bold text-slate-900 text-base">Toronto</h4>
+                  <p class="text-xs text-slate-500 mt-0.5">
+                    $120 / night average
+                  </p>
+                </div>
+                <a
+                  href="#"
+                  class="text-xs font-semibold text-sky-500 hover:text-sky-400 transition-colors"
+                  >Explore 76 properties</a
+                >
+              </div>
+            </div>
+
+            <div
+              class="flex bg-white rounded-xl shadow-md border border-slate-200/30 overflow-hidden hover:shadow-lg transition-all duration-200"
+            >
+              <img
+                class="w-32 h-32 object-cover flex-shrink-0"
+                src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=300&h=300&q=80"
+                alt="Malibu"
+              />
+              <div class="p-4 flex flex-col justify-between">
+                <div>
+                  <h4 class="font-bold text-slate-900 text-base">Malibu</h4>
+                  <p class="text-xs text-slate-500 mt-0.5">
+                    $215 / night average
+                  </p>
+                </div>
+                <a
+                  href="#"
+                  class="text-xs font-semibold text-sky-500 hover:text-sky-400 transition-colors"
+                  >Explore 43 properties</a
+                >
+              </div>
+            </div>
+
+            <div
+              class="flex bg-white rounded-xl shadow-md border border-slate-200/30 overflow-hidden hover:shadow-lg transition-all duration-200"
+            >
+              <img
+                class="w-32 h-32 object-cover flex-shrink-0"
+                src="https://images.unsplash.com/photo-1494526585095-c41746248156?auto=format&fit=crop&w=300&h=300&q=80"
+                alt="Chicago"
+              />
+              <div class="p-4 flex flex-col justify-between">
+                <div>
+                  <h4 class="font-bold text-slate-900 text-base">Chicago</h4>
+                  <p class="text-xs text-slate-500 mt-0.5">
+                    $130 / night average
+                  </p>
+                </div>
+                <a
+                  href="#"
+                  class="text-xs font-semibold text-sky-500 hover:text-sky-400 transition-colors"
+                  >Explore 115 properties</a
+                >
+              </div>
+            </div>
+
+            <div
+              class="flex bg-white rounded-xl shadow-md border border-slate-200/30 overflow-hidden hover:shadow-lg transition-all duration-200"
+            >
+              <img
+                class="w-32 h-32 object-cover flex-shrink-0"
+                src="https://images.unsplash.com/photo-1589481169991-40ee02888551?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8U2VhdHRsZXxlbnwwfHwwfHx8MA%3D%3D"
+                alt="Seattle"
+              />
+              <div class="p-4 flex flex-col justify-between">
+                <div>
+                  <h4 class="font-bold text-slate-900 text-base">Seattle</h4>
+                  <p class="text-xs text-slate-500 mt-0.5">
+                    $135 / night average
+                  </p>
+                </div>
+                <a
+                  href="#"
+                  class="text-xs font-semibold text-sky-500 hover:text-sky-400 transition-colors"
+                  >Explore 63 properties</a
+                >
+              </div>
+            </div>
+
+            <div
+              class="flex bg-white rounded-xl shadow-md border border-slate-200/30 overflow-hidden hover:shadow-lg transition-all duration-200"
+            >
+              <img
+                class="w-32 h-32 object-cover flex-shrink-0"
+                src="https://images.unsplash.com/photo-1524429656589-6633a470097c?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Colorado"
+              />
+              <div class="p-4 flex flex-col justify-between">
+                <div>
+                  <h4 class="font-bold text-slate-900 text-base">Colorado</h4>
+                  <p class="text-xs text-slate-500 mt-0.5">
+                    $85 / night average
+                  </p>
+                </div>
+                <a
+                  href="#"
+                  class="text-xs font-semibold text-sky-500 hover:text-sky-400 transition-colors"
+                  >Explore 47 properties</a
+                >
+              </div>
+            </div>
+
+            <div
+              class="flex bg-white rounded-xl shadow-md border border-slate-200/30 overflow-hidden hover:shadow-lg transition-all duration-200"
+            >
+              <img
+                class="w-32 h-32 object-cover flex-shrink-0"
+                src="https://images.unsplash.com/photo-1535498730771-e735b998cd64?auto=format&fit=crop&w=300&h=300&q=80"
+                alt="Miami"
+              />
+              <div class="p-4 flex flex-col justify-between">
+                <div>
+                  <h4 class="font-bold text-slate-900 text-base">Miami</h4>
+                  <p class="text-xs text-slate-500 mt-0.5">
+                    $115 / night average
+                  </p>
+                </div>
+                <a
+                  href="#"
+                  class="text-xs font-semibold text-sky-500 hover:text-sky-400 transition-colors"
+                  >Explore 86 properties</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const bookBtn = document.getElementById("book-btn");
+        if (bookBtn) {
+          bookBtn.addEventListener("click", () => {
+            alert("Preparing escape package...");
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

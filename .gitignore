@@ -21,6 +21,9 @@ obj/
 # Ignore generated dependencies for TDD
 TDD/node_modules/
 
+# Ignore generated dependencies for Tailwind
+Tailwind/day01/node_modules/
+
 # IDEs
 .vscode/
 .idea/
