@@ -18,6 +18,9 @@ obj/
 .vs/
 *.vcxproj*
 
+# Ignore generated dependencies for TDD
+TDD/node_modules/
+
 # IDEs
 .vscode/
 .idea/
