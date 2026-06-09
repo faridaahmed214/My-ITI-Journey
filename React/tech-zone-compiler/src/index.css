@@ -23,6 +23,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+body.light-theme {
+  --text: #333333;
+  --text-h: #007bb5;
+  --bg: #f4f7f6;
+  --border: #007bb5;
+  --code-bg: #e6eaea;
+  --accent: #007bb5;
+  --accent-bg: rgba(0, 123, 181, 0.1);
+  --accent-border: rgba(0, 123, 181, 0.5);
+  color-scheme: light;
+}
+
 body {
   margin: 0;
   background-color: var(--bg);

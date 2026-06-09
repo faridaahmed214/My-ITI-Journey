@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './PostItem.css';
 
 const ThumbsUpIcon = () => (
@@ -16,17 +17,24 @@ const ThumbsDownIcon = () => (
 const PostItem = ({ post }) => {
   const [upvotes, setUpvotes] = useState(0);
   const [downvotes, setDownvotes] = useState(0);
+  const navigate = useNavigate();
 
-  const handleUpvote = () => {
+  const handleUpvote = (e) => {
+    e.stopPropagation();
     setUpvotes(prev => prev + 1);
   };
 
-  const handleDownvote = () => {
+  const handleDownvote = (e) => {
+    e.stopPropagation();
     setDownvotes(prev => prev + 1);
   };
 
+  const handleCardClick = () => {
+    navigate(`/article/${post.id}`);
+  };
+
   return (
-    <div className="post-card">
+    <div className="post-card" onClick={handleCardClick} style={{ cursor: 'pointer' }}>
       {post.image && (
         <div className="post-card-image">
           <img src={post.image} alt={post.title} />
